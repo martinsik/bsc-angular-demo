@@ -1,0 +1,6 @@
+<app-notes-list
+  [notes]="notes$ | async"
+  (removeNote)="onRemoveNote($event)"
+>
+</app-notes-list>
+<button id="createNote" nz-button nzType="primary" routerLink="/create" i18n>Create a new note</button>

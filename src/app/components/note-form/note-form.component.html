@@ -1,0 +1,31 @@
+<form *ngIf="form" nz-form [formGroup]="form" (ngSubmit)="onSubmitForm()">
+  <nz-form-item *ngIf="noteId">
+    <nz-form-label [nzSm]="4" [nzXs]="24" nzFor="title">ID</nz-form-label>
+    <nz-form-control [nzSm]="12" [nzXs]="24">
+      {{ noteId }}
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-label [nzSm]="4" [nzXs]="24" nzRequired nzFor="title" i18n>Title</nz-form-label>
+    <nz-form-control [nzSm]="12" [nzXs]="24" i18n-nzErrorTip nzErrorTip="Title is required!">
+      <input nz-input formControlName="title" i18n-placeholder placeholder="Title" />
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-label [nzSm]="4" [nzXs]="24" nzFor="content" i18n>Content</nz-form-label>
+    <nz-form-control [nzSm]="12" [nzXs]="24">
+      <textarea nz-input formControlName="content" i18n-placeholder placeholder="Content"></textarea>
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-control [nzXs]="{ span: 24, offset: 0 }" [nzSm]="{ span: 20, offset: 4 }">
+      <button nz-button [nzType]="'primary'" [nzLoading]="sending" [disabled]="form.invalid">
+        <ng-container *ngIf="noteId" i18n>Update</ng-container>
+        <ng-container *ngIf="!noteId" i18n>Create</ng-container>
+      </button>
+    </nz-form-control>
+  </nz-form-item>
+</form>

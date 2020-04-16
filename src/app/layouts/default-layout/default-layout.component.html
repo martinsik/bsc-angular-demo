@@ -1,0 +1,18 @@
+<nz-layout>
+  <nz-content>
+    <div nz-row class="language-switch">
+      <div nz-col [nzXs]="{ span: 24, offset: 0 }" [nzMd]="{ span: 20, offset: 2 }">
+        <ng-container i18n>Switch language</ng-container>:
+        <a i18n (click)="changeLanguage('en')">English</a> | <a i18n (click)="changeLanguage('cs')">Czech</a>
+      </div>
+    </div>
+    <div nz-row>
+      <div nz-col [nzXs]="{ span: 24, offset: 0 }" [nzMd]="{ span: 20, offset: 2 }">
+        <ng-container *ngrxLet="hideBack$ as hideBack">
+          <nz-page-header (nzBack)="onBack()" [nzBackIcon]="hideBack ? null : 'arrow-left'" [nzTitle]="title$ | async"></nz-page-header>
+        </ng-container>
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </nz-content>
+</nz-layout>

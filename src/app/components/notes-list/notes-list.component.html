@@ -1,0 +1,26 @@
+<ng-template #loading>
+  <nz-spin i18n-nzTip nzTip="Loading..."></nz-spin>
+</ng-template>
+
+<nz-table *ngIf="notes; else loading" [nzData]="notes" [nzShowPagination]="false">
+  <thead>
+    <tr>
+      <th i18n>ID</th>
+      <th i18n>Title</th>
+      <th i18n>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let note of notes">
+      <td>{{ note.id }}</td>
+      <td>
+        <a [routerLink]="['/', note.id]">{{ note.title }}</a>
+      </td>
+      <td>
+        <a (click)="removeNote.emit(note)" i18n>Delete</a>
+        <nz-divider nzType="vertical"></nz-divider>
+        <a [routerLink]="['/', note.id, 'edit']" i18n>Edit</a>
+      </td>
+    </tr>
+  </tbody>
+</nz-table>
