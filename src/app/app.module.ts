@@ -19,7 +19,7 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { localStorageSync } from 'ngrx-store-localstorage';
 
-import { ApiInterceptor } from './interceptoirs/api.interceptor';
+import { ApiInterceptor } from './interceptors/api.interceptor';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NotesPageComponent } from './pages/notes-page/notes-page.component';
